@@ -41,7 +41,7 @@ const Customizer = () => {
     switch (activeEditorTab) {
       case "colorpicker":
         return <ColorPicker />;
-      case "filterpicker":
+      case "filepicker":
         return <FilePicker file={file} setFile={setFile} readFile={readFile} />;
       case "aipicker":
         return (
@@ -100,10 +100,10 @@ const Customizer = () => {
   const handleActiveFilterTab = (tabName) => {
     switch (tabName) {
       case "logoShirt":
-        state.isLogoTexture = !activeFilterTab(tabName);
+        state.isLogoTexture = !activeFilterTab[tabName];
         break;
       case "stylishShirt":
-        state.isFullTexture = !activeFilterTab(tabName);
+        state.isFullTexture = !activeFilterTab[tabName];
         break;
       default:
         state.isLogoTexture = true;
