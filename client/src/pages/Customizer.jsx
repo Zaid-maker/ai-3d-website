@@ -1,13 +1,7 @@
-import React, { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import React, { useState } from "react";
 import { useSnapshot } from "valtio";
 
-import config from "../config/config";
-import state from "../store";
-import { download } from "../assets";
-import { downloadCanvasToImage, reader } from "../config/helpers";
-import { EditorTabs, FilterTabs, DecalTypes } from "../config/constants";
-import { fadeAnimation, slideAnimation } from "../config/motion";
 import {
   AIPicker,
   ColorPicker,
@@ -15,6 +9,10 @@ import {
   FilePicker,
   Tab,
 } from "../components";
+import { DecalTypes, EditorTabs, FilterTabs } from "../config/constants";
+import { reader } from "../config/helpers";
+import { fadeAnimation, slideAnimation } from "../config/motion";
+import state from "../store";
 
 const Customizer = () => {
   const snap = useSnapshot(state);
@@ -87,6 +85,10 @@ const Customizer = () => {
     }
   };
 
+  /**
+   * The function handles decals by setting the state property and activating the filter tab if
+   * necessary.
+   */
   const handleDecals = (type, result) => {
     const decalType = DecalTypes[type];
 
